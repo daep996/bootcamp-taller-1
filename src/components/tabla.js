@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import Table from 'react-bootstrap/Table';
 import Image from 'react-bootstrap/Image';
+import Container  from 'react-bootstrap/Container';
 
 import { setData, setId } from '../store/dataSlice'
 
@@ -39,7 +40,7 @@ function Tabla() {
     }
 
     return (
-        <>
+        <Container className="d-flex flex-column align-items-center justify-content-center">
             <h1 style={{margin: '2rem'}}>Personajes de Rick and Morty</h1>
             <Image
                 src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg"
@@ -74,14 +75,14 @@ function Tabla() {
                                     <Image src={item.image} alt={item.name} style={{'width': '64px'}} thumbnail />
                                 </td>
                                 <td style={{fontSize: '1.2rem'}}>{item.name}</td>
-                                <td><button onClick={() => irAEpisodios(item.id)} type="button">Episodios</button></td>
-                                <td><button onClick={() => irAPersonaje(item.id)} >Más detalles</button></td>
+                                <td><button onClick={() => irAEpisodios(item.id)} type="button" className="btn btn-success">Episodios</button></td>
+                                <td><button onClick={() => irAPersonaje(item.id)} className="btn btn-info" >Más detalles</button></td>
                             </tr>
                         )
                     })}
                 </tbody>
             </Table>
-    </>);
+    </Container>);
 }
 
 export default Tabla;
